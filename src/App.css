@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.b-image{
+  width: 100%;
+  height: 100vh;  
+  background-image: url("./Images/loginPage.jpg");
+  background-size:cover;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.login-form{
+  color: black;
+  background-color:bisque;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  
+  justify-content: center;
+}
+.chat-box {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+.message-left {
+  text-align: left;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+}
+
+.message-right {
+  text-align: right;
+  background-color: #4caf50;
   color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  margin-left: auto;
+}
+.user-avatar {
+  width: 30px; /* Adjust the size as needed */
+  height: 30px;
+  border-radius: 50%; /* Make it circular */
+  margin-right: 10px; /* Space between image and message */
+  vertical-align: middle; /* Aligns image with text */
+}
+.chatSend{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
