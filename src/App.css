@@ -28,8 +28,11 @@
   background-color: #f9f9f9;
 }
 .message-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   text-align: left;
-  background-color: #e0e0e0;
+  flex-direction: row-reverse;
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -37,8 +40,10 @@
 }
 
 .message-right {
-  text-align: right;
-  background-color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: left;
   color: white;
   padding: 10px;
   border-radius: 10px;
@@ -47,13 +52,12 @@
   margin-left: auto;
 }
 .user-avatar {
-  width: 30px; /* Adjust the size as needed */
-  height: 30px;
   border-radius: 50%; /* Make it circular */
   margin-right: 10px; /* Space between image and message */
   vertical-align: middle; /* Aligns image with text */
 }
 .chatSend{
+  
   margin-top: 10px;
   display: flex;
   justify-content: center;

@@ -5,12 +5,12 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   async function registerUser(email, username) {
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch('http://localhost:3000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -58,4 +58,4 @@ const Login = () => {
   );
 }
 
-export default Login;
+export default Register;
