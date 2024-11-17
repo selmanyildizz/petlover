@@ -15,7 +15,6 @@ const Chat = () => {
   const [chat, setChat] = useState([]);
   const [userId, setUserId] = useState(generateUserId()); // Generate a unique user ID
   const [file, setFile] = useState(null);
-console.log(chat);
 
   useEffect(() => {
     // Emit new user event
@@ -45,8 +44,7 @@ console.log(chat);
         id: Date.now(), 
         text: message, 
         sender: userId, 
-        status: 'gönderildi',
-        imageUrl: `http://localhost:2000/uploads/DSC_8786.JPG`
+        status: 'gönderildi' 
       }; // Attach sender info and message ID
       socket.emit('chat message', messageData); // Send message to server
       setMessage('');
@@ -92,20 +90,19 @@ console.log(chat);
       <div className="chat-box">
         {chat.map((msg, index) => (
           <div key={index} className={msg.sender === userId ? 'message-right' : 'message-left'}>
-            
+            <img 
+              src={msg.imageUrl} 
+              alt={`${msg.sender}'s avatar`} 
+              className="user-avatar" 
+              style={{ width: '40px', height: '40px', borderRadius: '50%' }} // Make avatar round
+            />
             {msg.text ? (
-              <div style={{backgroundColor:msg.sender === userId?"#4caf50":"#e0e0e0" ,minWidth:"130px",minHeight:"40px",borderRadius:"5px",padding:"5px",marginRight:"4px"}}>{msg.text}</div>
+              <p>{msg.text}</p>
             ) : (
               <a href={msg.fileUrl} target="_blank" rel="noopener noreferrer">
                 {msg.filename} {/* Display the filename as a clickable link */}
               </a>
-            )} 
-            <img 
-              src={msg.imageUrl} 
-              className="user-avatar" 
-              style={{ width: '40px', height: '40px', borderRadius: '50%' }} // Make avatar round
-            />
-            
+            )}
           </div>
         ))}
       </div>
@@ -118,9 +115,12 @@ console.log(chat);
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Type your message..."
           />
-          <Button icon="pi pi-send" />
+          <Button type="submit">Send</Button>
         </form>
-       
+        <form onSubmit={sendFile}>
+          <input type="file" onChange={handleFileChange} />
+          <Button type="submit">Send File</Button>
+        </form>
       </div>
     </div>
   );
