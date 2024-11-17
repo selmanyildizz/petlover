@@ -8,27 +8,7 @@ import { Button } from 'primereact/button';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  async function registerUser(email, username) {
-    try {
-      const response = await fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, username })
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        console.log(data.message); // Başarılı mesajı
-      } else {
-        console.error(data.message); // Hata mesajı
-      }
-    } catch (error) {
-      console.error("Kullanıcı kaydedilirken bir hata oluştu:", error);
-    }
-  }
+
   return (
     <div className="b-image">
       <div className="login-form">
@@ -48,10 +28,7 @@ const Login = () => {
         </FloatLabel>
 
         {/* Giriş Butonu */}
-        <div className="d-flex justify-content-center mt-3">
-        <Button label="Giriş"   style={{width:"60%"}} onClick={() => registerUser(username, password)} />
-        </div>
-        
+        <Button label="Giriş" className="mt-3" style={{width:"60%"}} onClick={() => console.log('Login yapıldı')} />
       </div>
     </div>
 
